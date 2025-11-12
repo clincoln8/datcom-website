@@ -33,7 +33,7 @@ website and mixer changes.
 
 - Python
 
-  Confirm the Python3 version is 3.11 or above. Otherwise install/upgrade your Python
+  Confirm the Python3 version is 3.13 or above. Otherwise install/upgrade your Python
   and confirm the version:
 
   ```bash

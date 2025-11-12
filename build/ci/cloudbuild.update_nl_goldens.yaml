@@ -34,7 +34,7 @@ steps:
       git config user.name "${_GITHUB_AUTHOR}"
       git config user.email "${_GITHUB_AUTHOR}@users.noreply.github.com"
 
-- name: 'python:3.11.4'
+- name: 'python:3.13.9'
   id: 'run-nl-tests'
   entrypoint: 'bash'
   args:

@@ -14,7 +14,7 @@
 
 steps:
   - id: setup_python
-    name: python:3.11.3
+    name: python:3.13.9
     entrypoint: /bin/bash
     args:
       - -c

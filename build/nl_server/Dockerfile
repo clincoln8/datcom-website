@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM python:3.11.4-slim
+FROM python:3.13.9-slim
 
 RUN apt-get update && apt-get -y upgrade
 

@@ -2,9 +2,9 @@
 __pycache__/
 .pytest_cache
 *.pyc
-.env/
-.env_website/
-.env_nl/
+.venv/**
+.venv_website/**
+.venv_nl/**
 
 # Gemini
 .gemini/**
@@ -25,6 +25,7 @@ __pycache__/
 !.vscode/launch.json
 .env.list
 build/cdc/dev/.env-test
+.env
 
 # Mac
 .DS_Store

@@ -15,7 +15,7 @@
 
 # Stage 1: Python Builder
 # Uses a specific Python patch version on a slim Debian Bookworm base
-FROM python:3.11.4-slim-bookworm AS python-builder
+FROM python:3.13.9-slim-bookworm AS python-builder
 
 # Stage 2: Go Builder
 # Uses a specific Go patch version on a Debian Bookworm base

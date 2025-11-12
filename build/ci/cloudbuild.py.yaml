@@ -16,7 +16,7 @@
 steps:
   # Download the files needed for nl embeddings tests.
   - id: download_nl_files
-    name: python:3.11.3
+    name: python:3.13.9
     entrypoint: /bin/sh
     args:
       - -c
@@ -25,7 +25,7 @@ steps:
         ./run.sh
 
   - id: flask_test
-    name: python:3.11.3
+    name: python:3.13.9
     entrypoint: /bin/sh
     waitFor: ["download_nl_files"]
     args:
