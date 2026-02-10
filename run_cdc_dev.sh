@@ -182,12 +182,7 @@ fi
 MCP_PID=""
 if [[ $ENABLE_MCP == "true" ]]; then
   echo "Starting MCP Server..."
-  if ! python3 -c "import datacommons_mcp" &> /dev/null; then
-    echo "datacommons-mcp not found, installing..."
-    uv pip install datacommons-mcp
-  fi
-  
-  mcp_command="datacommons-mcp serve http --skip-api-key-validation --port 8082"
+  mcp_command="uvx datacommons-mcp serve http --skip-api-key-validation --port 8082"
   eval "$mcp_command &"
   MCP_PID=$!
 else
