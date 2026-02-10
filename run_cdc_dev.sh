@@ -133,7 +133,7 @@ if [ $? -ne 0 ]; then
   echo "Mixer build failed."
   exit 1
 fi
-echo "Starting mixer..."
+echo "Starting mixer on port 8081..."
 mixer_command="./bin/mixer_server \
   --use_bigquery=false \
   --use_base_bigtable=false \
@@ -166,7 +166,7 @@ cd ..
 # Start NL server.
 NL_PID=""
 if [[ $ENABLE_MODEL == "true" ]]; then
-  echo "Starting NL Server..."
+  echo "Starting NL Server on port 6060..."
   nl_command="uv run --project nl_server python3 nl_app.py 6060"
   if [[ "$VERBOSE" == "true" ]]; then
     eval "$nl_command &"
@@ -181,16 +181,20 @@ fi
 # Start MCP server.
 MCP_PID=""
 if [[ $ENABLE_MCP == "true" ]]; then
-  echo "Starting MCP Server..."
+  echo "Starting MCP Server on port 8082..."
   mcp_command="uvx datacommons-mcp serve http --skip-api-key-validation --port 8082"
-  eval "$mcp_command &"
+  if [[ "$VERBOSE" == "true" ]]; then
+    eval "$mcp_command &"
+  else
+    eval "$mcp_command > /dev/null 2>&1 &"
+  fi
   MCP_PID=$!
 else
   log_notice "$ENABLE_MCP is not true, MCP server will not be started."
 fi
 
 # Start Website server.
-echo "Starting Website Server..."
+echo "Starting Website Server on port 8080..."
 website_command="uv run --project server python3 web_app.py 8080"
 if [[ "$VERBOSE" == "true" ]]; then
   eval "$website_command &"
