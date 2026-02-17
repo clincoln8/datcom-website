@@ -127,7 +127,7 @@ if [[ $ENABLE_MCP == "true" ]]; then
           echo "Starting MCP Server in debug mode."
       fi
       exec datacommons-mcp serve http --skip-api-key-validation --port 8082
-    ) & 
+    ) &
 fi
 
 # Start website server.
