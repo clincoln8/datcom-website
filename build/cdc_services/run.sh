@@ -126,7 +126,10 @@ if [[ $ENABLE_MCP == "true" ]]; then
       if [[ $DEBUG == "true" ]]; then
           echo "Starting MCP Server in debug mode."
       fi
-      uvx --from "datacommons-mcp==1.1.7.dev3" --index-url https://test.pypi.org/simple/ datacommons-mcp
+      python3 -m uv tool run \
+        --from "datacommons-mcp==1.1.7.dev3" \
+        --extra-index-url https://test.pypi.org/simple/ \
+        datacommons-mcp
     ) &
 fi
 
