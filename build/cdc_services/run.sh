@@ -97,7 +97,6 @@ if [[ $ENABLE_MODEL == "true" ]]; then
         gunicorn --log-level info --preload --timeout 1000 --bind 0.0.0.0:$NL_SERVER_PORT -w 1 nl_app:app &
     fi
 fi
-pip install uv
 # Start MCP server.
 if [[ $ENABLE_MCP == "true" ]]; then
     echo "Starting MCP Server."
@@ -126,11 +125,7 @@ if [[ $ENABLE_MCP == "true" ]]; then
       if [[ $DEBUG == "true" ]]; then
           echo "Starting MCP Server in debug mode."
       fi
-      python3 -m uv tool run \
-        --from "datacommons-mcp==1.1.7.dev3" \
-        --extra-index-url https://test.pypi.org/simple/ \
-        datacommons-mcp
-    ) &
+      exec datacommons-mcp serve http --skip-api-key-validation --port 8082  
 fi
 
 # Start website server.

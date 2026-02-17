@@ -73,7 +73,7 @@ RUN pip3 install --upgrade pip setuptools \
     && pip3 install --no-cache-dir -r /workspace/server/requirements.txt \
     && pip3 install --no-cache-dir -r /workspace/torch_requirements.txt --index-url https://download.pytorch.org/whl/cpu \
     && pip3 install --no-cache-dir -r /workspace/nl_server/requirements.txt \
-    && pip3 install --no-cache-dir datacommons-mcp
+    && pip3 install --extra-index-url https://test.pypi.org/simple/ "datacommons-mcp==1.1.7.dev3"
 
 # Copy website app script.
 COPY web_app.py ./web_app.py
